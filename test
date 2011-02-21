@@ -1,0 +1,8 @@
+#!/usr/bin/ruby
+# encoding: utf-8
+
+$:.push("./lib")
+require "optipng"
+
+puts Optipng.available?.inspect
+puts Optipng.optimize(["1.png", "4.png", "mp.png"], :level => 7, :debug => true)
