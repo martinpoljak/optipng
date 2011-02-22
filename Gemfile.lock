@@ -9,7 +9,7 @@ GEM
       bundler (~> 1.0.0)
       git (>= 1.2.5)
       rake
-    pipe-run (0.1.0)
+    pipe-run (0.2.0)
     rake (0.8.7)
     unix-whereis (0.1.0)
       command-builder (>= 0.1.0)
@@ -23,5 +23,5 @@ DEPENDENCIES
   bundler (~> 1.0.0)
   command-builder (>= 0.1.0)
   jeweler (~> 1.5.2)
-  pipe-run (>= 0.1.0)
+  pipe-run (>= 0.2.0)
   unix-whereis (>= 0.1.0)
