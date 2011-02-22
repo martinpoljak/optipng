@@ -47,14 +47,18 @@ module Optipng
     ##
     # Performs optimizations above file or set of files.
     #
+    # If block is given, runs +optipng+ asynchronously. In that case, 
+    # +em-pipe-run+ file must be already required.
+    #
     # @param [String, Array] paths file path or array of paths for optimizing
     # @param [Hash] options options 
+    # @param [Proc] block block for giving back the results
     # @option options [Integer] :level optimization level (0-7)
     # @option options [Boolean] :debug turn on debugging mode, so command will be put out to the +STDERR+
     # @return [Struct] see {Result}
     #
     
-    def self.optimize(paths, options = { })
+    def self.optimize(paths, options = { }, &block)
     
         # Command
         cmd = CommandBuilder::new(self::COMMAND)
@@ -75,12 +79,24 @@ module Optipng
         if options[:debug] == true
             STDERR.write cmd.to_s + "\n"
         end
-        
-        output = Pipe.run(cmd.to_s)
-        
-        # Parses output
-        succeed, errors = __parse_output(output)
-        return self::Result::new(succeed, errors)
+
+            cmd = cmd.to_s
+            
+            # Blocking
+            if block.nil?
+                output = Pipe.run(cmd)
+
+                # Parses output
+                succeed, errors = __parse_output(output)
+                return self::Result::new(succeed, errors)
+                
+            # Non-blocking
+            else
+                Pipe.run(cmd) do |output|
+                    succeed, errors = __parse_output(output)
+                    block.call(self::Result::new(succeed, errors))
+                end
+            end
         
     end
     

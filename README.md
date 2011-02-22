@@ -14,6 +14,9 @@ Some examples follow: (for details, see module documentation)
     # and then will return for example: 
     #   '#<struct Optipng::Result succeed={"foo.png => -22.1}}, errors=[["empty.png", "Unrecognized image file format"], ["nonexist.png", "Can't open the input file"]]>
     
+It can be also run asynchronously by non-blocking way (with [`eventmachine`][4]) 
+simply by giving block with one argument to `#optimize`. See documentation. 
+    
 ### Call Result
 
 Result contains members `:success` and `:errors`. Sucess member contains 
@@ -45,3 +48,4 @@ further details.
 [1]: http://optipng.sourceforge.net/
 [2]: http://github.com/martinkozak/qrpc/issues
 [3]: http://www.martinkozak.net/
+[4]: http://rubyeventmachine.com/

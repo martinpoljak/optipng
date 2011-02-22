@@ -3,6 +3,13 @@
 
 $:.push("./lib")
 require "optipng"
+require "em-pipe-run"
 
-puts Optipng.available?.inspect
-puts Optipng.optimize(["1.png", "4.png", "mp.png"], :level => 7, :debug => true)
+EM::run do
+    puts Optipng.available?.inspect
+    Optipng.optimize(["1.png", "4.png", "mp.png"], :level => 7, :debug => true) do |result|
+        puts result.inspect
+    end
+    
+    puts "xxx"
+end
