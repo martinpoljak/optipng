@@ -46,6 +46,6 @@ Copyright &copy; 2011 [Martin Kozák][3]. See `LICENSE.txt` for
 further details.
 
 [1]: http://optipng.sourceforge.net/
-[2]: http://github.com/martinkozak/qrpc/issues
+[2]: http://github.com/martinkozak/optipng/issues
 [3]: http://www.martinkozak.net/
 [4]: http://rubyeventmachine.com/
