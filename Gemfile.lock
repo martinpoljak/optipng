@@ -1,16 +1,17 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    command-builder (0.1.0)
-      hash-utils (>= 0.7.0)
+    command-builder (0.2.0)
+      hash-utils (>= 0.18.0)
+      pipe-run (>= 0.2.1)
     git (1.2.5)
-    hash-utils (0.9.0)
-    jeweler (1.5.2)
-      bundler (~> 1.0.0)
+    hash-utils (0.18.0)
+    jeweler (1.6.4)
+      bundler (~> 1.0)
       git (>= 1.2.5)
       rake
-    pipe-run (0.2.0)
-    rake (0.8.7)
+    pipe-run (0.2.1)
+    rake (0.9.2)
     unix-whereis (0.1.0)
       command-builder (>= 0.1.0)
       hash-utils (>= 0.9.0)
@@ -20,8 +21,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.0.0)
-  command-builder (>= 0.1.0)
-  jeweler (~> 1.5.2)
-  pipe-run (>= 0.2.0)
+  bundler (>= 1.0.0)
+  command-builder (>= 0.2.0)
+  jeweler (>= 1.5.2)
   unix-whereis (>= 0.1.0)
