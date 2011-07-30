@@ -1,0 +1,9 @@
+
+0.2.1 (2011-07-30)
+* executing directly by 'command-builder'
+
+0.2.0 (2011-02-22)
+* asynchronous executing support
+
+0.1.0 (2011-02-21) 
+* initial version
