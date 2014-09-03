@@ -60,11 +60,15 @@ module Optipng
     def self.optimize(paths, options = { }, &block)
     
         # Command
-        cmd = CommandBuilder::new(self::COMMAND)
+        cmd = CommandBuilder::new(self::COMMAND, ["-", " ", "-", "="])
         
         # Max
         if options[:level].kind_of? Integer
             cmd.arg(:o, options[:level].to_i)
+        end
+        
+        if options[:fix]
+            cmd.arg(:fix)
         end
         
         # Files
